@@ -19,3 +19,21 @@
     - _@import "tailwindcss"_
 - Vite
 - ContextAPI
+
+## CONTEXTAPI
+
+- _Context API_ permite tener un estado global en tu app, esto quiere decir que solo se tiene una instancia del _state_ que se puede acceder desde cualquier componente sin pasarlo por diferentes componentes vía props.
+- El _hook_ para utilizarlo es:
+  - **useContext**
+- Muchas librerías utilizan:
+  - **Context API**
+
+  ### ALTERNATIVAS
+
+  - _Context API_ no requiere dependencias pero su _boilerplate_ para configurarlo puede ser algo complejo.
+  - Otras alternativas son:
+    - _Zustand_
+    - _Redux_
+    - _Toolkit_
+
+
