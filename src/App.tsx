@@ -4,6 +4,7 @@ import BudgetForm from "./components/BudgetForm";
 // import { BudgetContext } from "./context/BudgetContext";
 import { useBudget } from "./hooks/useBudget";
 import BudgetTracker from "./components/BudgetTracker";
+import ExpenseModal from "./components/ExpenseModal";
 
 function App() {
   // const context = useContext(BudgetContext);
@@ -25,12 +26,15 @@ function App() {
       <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg mt-10 p-10">
         {/* <BudgetForm /> */}
 
-        {
-          isValidBudget
-            ? <BudgetTracker />
-            : <BudgetForm />
-        }
+        {isValidBudget ? <BudgetTracker /> : <BudgetForm />}
       </div>
+
+      {/* El && es como un TERNARIO, pero en este caso se habilita lo que hay dentro cuando la variable es TRUE únicamente*/}
+      {isValidBudget && (
+        <main>
+          <ExpenseModal />
+        </main>
+      )}
     </>
   );
 }

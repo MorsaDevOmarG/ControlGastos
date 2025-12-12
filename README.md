@@ -19,6 +19,9 @@
     - _@import "tailwindcss"_
 - Vite
 - ContextAPI
+- Modales
+  - **_npm i @headlessui/react_**
+  - **_npm i @heroicons/react_**
 
 ## CONTEXTAPI
 
