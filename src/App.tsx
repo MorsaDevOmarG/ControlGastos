@@ -1,14 +1,18 @@
 // import { useContext } from "react";
+import { useMemo } from "react";
 import BudgetForm from "./components/BudgetForm";
 // import { BudgetContext } from "./context/BudgetContext";
-// import { useBudget } from "./hooks/useBudget";
+import { useBudget } from "./hooks/useBudget";
+import BudgetTracker from "./components/BudgetTracker";
 
 function App() {
   // const context = useContext(BudgetContext);
   // console.log(context);
 
-  // const { state, dispatch } = useBudget();
-  // console.log(state);
+  const { state } = useBudget();
+  // console.log(state.budget);
+
+  const isValidBudget = useMemo(() => state.budget > 0, [state.budget]);
 
   return (
     <>
@@ -19,7 +23,13 @@ function App() {
       </header>
 
       <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg mt-10 p-10">
-        <BudgetForm />
+        {/* <BudgetForm /> */}
+
+        {
+          isValidBudget
+            ? <BudgetTracker />
+            : <BudgetForm />
+        }
       </div>
     </>
   );
