@@ -19,9 +19,15 @@
     - _@import "tailwindcss"_
 - Vite
 - ContextAPI
-- Modales
+- Modales - HEADLESS
   - **_npm i @headlessui/react_**
   - **_npm i @heroicons/react_**
+- Calendario - DATE-PICKER
+  - **_npm install react-date-picker_**
+  - **_npm i react-calendar_**
+  - Se importa la librería, ej: **ExpenseForm.tsx**
+  - _https://www.npmjs.com/package/react-date-picker_
+
 
 ## CONTEXTAPI
 
