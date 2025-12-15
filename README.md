@@ -27,7 +27,9 @@
   - **_npm i react-calendar_**
   - Se importa la librería, ej: **ExpenseForm.tsx**
   - _https://www.npmjs.com/package/react-date-picker_
-
+- UUID - Generador de _ID'S_
+  - **_npm i uuid_**
+  - **_npm i --save-dev @types/uuid_**
 
 ## CONTEXTAPI
 
