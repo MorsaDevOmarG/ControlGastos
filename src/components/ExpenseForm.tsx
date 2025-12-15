@@ -55,7 +55,15 @@ export default function ExpenseForm() {
 
     // Agregar un nuevo gasto
     // console.log('Todo bien');
-    dispatch({ type: 'add-expense', payload: {expense} });
+    dispatch({ type: 'add-expense', payload: { expense } });
+    
+    // Reiniciar el STATE despuésde agregar un PRESUPUESTO, 1 forma
+    setExpense({
+      amount: 0,
+      expenseName: "",
+      category: "",
+      date: new Date(),
+    });
   };
 
   return (
