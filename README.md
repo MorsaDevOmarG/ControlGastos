@@ -30,6 +30,10 @@
 - UUID - Generador de _ID'S_
   - **_npm i uuid_**
   - **_npm i --save-dev @types/uuid_**
+- React Swipeable list
+  - Efecto para arrastrar elementos.
+  - Ej: Un botón para eliminar, arrastras o deslizas hacia izquierda o derecha
+  - **_npm i react-swipeable-list_**
 
 ## CONTEXTAPI
 
