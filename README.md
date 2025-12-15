@@ -34,6 +34,8 @@
   - Efecto para arrastrar elementos.
   - Ej: Un botón para eliminar, arrastras o deslizas hacia izquierda o derecha
   - **_npm i react-swipeable-list_**
+  - **_npm install prop-types_**
+
 
 ## CONTEXTAPI
 
