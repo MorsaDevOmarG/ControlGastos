@@ -32,7 +32,7 @@ function App() {
 
       {/* El && es como un TERNARIO, pero en este caso se habilita lo que hay dentro cuando la variable es TRUE únicamente*/}
       {isValidBudget && (
-        <main>
+        <main className="max-w-3xl mx-auto py-10">
           <ExpenseList />
           <ExpenseModal />
         </main>
