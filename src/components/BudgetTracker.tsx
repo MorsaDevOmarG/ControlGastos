@@ -5,7 +5,7 @@ import AmountDisplay from "./AmountDisplay";
 import "react-circular-progressbar/dist/styles.css";
 
 export default function BudgetTracker() {
-  const { state, totalExpenses, remainingBudget } = useBudget();
+  const { state, totalExpenses, remainingBudget, dispatch } = useBudget();
   // const totalExpenses = useMemo(() => state.expenses.reduce((total, expense) => expense.amount + total, 0), [state.expenses]);
   // const remainingBudget = state.budget - totalExpenses;
 
@@ -32,6 +32,7 @@ export default function BudgetTracker() {
         <button
           type="submit"
           className="bg-pink-600 w-full p-2 text-white uppercase font-bold rounded-lg cursor-pointer"
+          onClick={() => dispatch({type: 'reset-app'})}
         >
           Resetear
         </button>
