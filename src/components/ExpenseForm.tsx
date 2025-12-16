@@ -61,9 +61,13 @@ export default function ExpenseForm() {
       return;
     }
 
-    // Agregar un nuevo gasto
+    // Agregar un nuevo gasto - agregar o actualizar un gasto
     // console.log('Todo bien');
-    dispatch({ type: 'add-expense', payload: { expense } });
+    if (state.editingId) {
+      dispatch({ type: "update-expense", payload: { expense: {id: state.editingId, ...expense } } });
+    } else {
+      dispatch({ type: 'add-expense', payload: { expense } });
+    }
     
     // Reiniciar el STATE despuésde agregar un PRESUPUESTO, 1 forma
     setExpense({
