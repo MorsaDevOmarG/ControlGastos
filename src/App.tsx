@@ -1,5 +1,5 @@
 // import { useContext } from "react";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import BudgetForm from "./components/BudgetForm";
 // import { BudgetContext } from "./context/BudgetContext";
 import { useBudget } from "./hooks/useBudget";
@@ -15,6 +15,12 @@ function App() {
   // console.log(state.budget);
 
   const isValidBudget = useMemo(() => state.budget > 0, [state.budget]);
+
+  useEffect(() => {
+    localStorage.setItem('budget', state.budget.toString());
+
+    localStorage.setItem('expenses', JSON.stringify(state.expenses));
+  }, [state]);
 
   return (
     <>
