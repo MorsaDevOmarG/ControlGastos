@@ -2,7 +2,7 @@ import { categories } from "../data/categories";
 import DatePicker from "react-date-picker";
 import "react-date-picker/dist/DatePicker.css";
 import "react-calendar/dist/Calendar.css";
-import { useState, ChangeEvent, useEffect } from "react";
+import { useState, useEffect, type ChangeEvent } from "react";
 import type { DraftExpense, Value } from "../types";
 import ErrorMessage from "./ErrorMessage";
 import { useBudget } from "../hooks/useBudget";
