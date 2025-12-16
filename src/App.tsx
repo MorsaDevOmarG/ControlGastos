@@ -6,6 +6,7 @@ import { useBudget } from "./hooks/useBudget";
 import BudgetTracker from "./components/BudgetTracker";
 import ExpenseModal from "./components/ExpenseModal";
 import ExpenseList from "./components/ExpenseList";
+import FilterByCategory from "./components/FilterByCategory";
 
 function App() {
   // const context = useContext(BudgetContext);
@@ -39,6 +40,7 @@ function App() {
       {/* El && es como un TERNARIO, pero en este caso se habilita lo que hay dentro cuando la variable es TRUE únicamente*/}
       {isValidBudget && (
         <main className="max-w-3xl mx-auto py-10">
+          <FilterByCategory />
           <ExpenseList />
           <ExpenseModal />
         </main>
