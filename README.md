@@ -36,6 +36,8 @@
   - **_npm i react-swipeable-list_**
   - **_npm install prop-types_**
 - Local Storage
+- Gráficas
+  - **_npm i react-circular-progressbar_**
 
 ## CONTEXTAPI
 
