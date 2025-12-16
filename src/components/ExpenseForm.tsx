@@ -14,14 +14,19 @@ export default function ExpenseForm() {
     category: "",
     date: new Date(),
   });
-  const [error, setError] = useState('');
-  const { dispatch, state } = useBudget();
+  const [error, setError] = useState("");
+  const [previosAmount, setPreviosAmount] = useState(0);
+  const { dispatch, state, remainingBudget } = useBudget();
 
   useEffect(() => {
     if (state.editingId) {
-      const editingExpense = state.expenses.filter(currentExpense => currentExpense.id === state.editingId)[0];
+      const editingExpense = state.expenses.filter(
+        (currentExpense) => currentExpense.id === state.editingId
+      )[0];
 
       setExpense(editingExpense);
+
+      setPreviosAmount(editingExpense.amount);
     }
   }, [state.editingId]);
 
@@ -52,11 +57,21 @@ export default function ExpenseForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (Object.values(expense).includes('')) {
+    if (Object.values(expense).includes("")) {
       // console.log('Error');
 
       // Validar
-      setError('Todos los campos son obligatorios');
+      setError("Todos los campos son obligatorios");
+
+      return;
+    }
+
+    // Validar que no me pase del límite
+    if ((expense.amount - previosAmount) > remainingBudget) {
+      // console.log('Error');
+
+      // Validar
+      setError("Ese gasto se sale del presupuesto");
 
       return;
     }
@@ -64,11 +79,14 @@ export default function ExpenseForm() {
     // Agregar un nuevo gasto - agregar o actualizar un gasto
     // console.log('Todo bien');
     if (state.editingId) {
-      dispatch({ type: "update-expense", payload: { expense: {id: state.editingId, ...expense } } });
+      dispatch({
+        type: "update-expense",
+        payload: { expense: { id: state.editingId, ...expense } },
+      });
     } else {
-      dispatch({ type: 'add-expense', payload: { expense } });
+      dispatch({ type: "add-expense", payload: { expense } });
     }
-    
+
     // Reiniciar el STATE despuésde agregar un PRESUPUESTO, 1 forma
     setExpense({
       amount: 0,
@@ -82,8 +100,7 @@ export default function ExpenseForm() {
     <form className="space-y-5" onSubmit={handleSubmit}>
       <legend className="uppercase text-center text-2xl font-black border-b-4 border-blue-500 py-2">
         {/* Nuevo Gasto */}
-
-        {state.editingId ? 'Editar' : 'Nuevo'} Gasto
+        {state.editingId ? "Editar" : "Nuevo"} Gasto
       </legend>
 
       {
@@ -163,7 +180,7 @@ export default function ExpenseForm() {
       <input
         type="submit"
         // value="Registrar Gasto"
-        value={`${state.editingId ? 'Editar' : 'Registrar'} Gasto`}
+        value={`${state.editingId ? "Editar" : "Registrar"} Gasto`}
         className="bg-blue-600 w-full p-2 text-white uppercase font-bold rounded-lg"
       />
     </form>
